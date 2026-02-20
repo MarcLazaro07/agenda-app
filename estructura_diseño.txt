@@ -1,0 +1,379 @@
+app de agenda y contactos en flutter y dart pero por ahora quiero hacer la fase uno que es el diseño de la app real, me pidieron algo que se vea simple y rapido pero tambien quiero que no sea tan generico que tenga su propio estilo tal vez usando paquetes de componentes que no sean material ui o si crees que puedes hacer algo unico con ellos entonces esta bien pero quiero algo con su propia identidad y debe tener modo claro y oscuro nativo automatico y quiero que uses una arquitectura profesional y escalable para tambien despues crear la logica y backend, aqui te dejo la estructura en texto para que tambien la uses: ESTRUCTURA DE LA APP 
+Barra inferior fija (Bottom Navigation):
+
+Agenda
+
+Contactos
+
+Buscar
+
+Configuración
+
+Botón flotante:
+
+Visible solo en Agenda y Contactos
+
+No visible en Buscar ni Configuración
+
+Ícono cambia según sección
+
+1. SECCIÓN AGENDA
+
+Esta será la pantalla principal al abrir la app.
+
+Header (antes estaba en Home, ahora aquí)
+
+Parte superior fija:
+
+Fecha actual grande
+
+Mes y año debajo
+
+Botón pequeño “Hoy”
+
+Ícono búsqueda opcional
+
+Espaciado limpio
+
+CALENDARIO DINÁMICO (ESTADOS)
+
+Estado inicial: Vista semanal
+
+El calendario comienza mostrando únicamente la semana actual.
+
+Estado 1 – Vista Semanal (por defecto)
+
+Ocupa aproximadamente 30–35% de la pantalla
+
+Muestra:
+Mes actual hasta arriba
+Nombre corto de días (L, M, M, J, V, S, D)
+
+Número del día
+
+Día actual resaltado
+
+Debajo del número:
+
+Pequeñas barras horizontales de colores
+
+Cada barra representa un evento
+
+Color depende de la categoría
+
+Máximo 2–3 visibles, el resto se indica con pequeño “+X”
+
+Debajo del calendario:
+Lista vertical de eventos del día seleccionado
+
+Cada evento:
+
+Barra lateral color categoría
+
+Hora
+
+Título
+
+Indicador prioridad
+
+Icono pequeño si tiene personas asociadas
+
+Estado 2 – Vista Mensual Compacta (al deslizar hacia abajo)
+
+Calendario se expande
+
+Muestra todo el mes
+
+Altura media
+
+Cada día contiene:
+
+Barras horizontales de colores
+
+Punto indicador si hay más eventos
+
+Lista del día permanece abajo ocupando menor espacio
+
+Estado 3 – Vista Mensual Completa(deslizar hacia abajo otra vez)
+
+Calendario ocupa todo el espacio hasta la barra inferior
+
+Lista de eventos se oculta
+
+Al tocar un día aparece lista deslizable
+
+Interacción natural con animación suave
+
+Gestos:
+
+Deslizar hacia abajo:
+Semanal → Mensual Compacto → Mensual Completo
+
+Deslizar hacia arriba:
+Mensual Completo → Compacto → Semanal
+
+Transiciones suaves con snap.
+
+Botón Flotante en Agenda
+
+Icono:
+Calendario con símbolo +
+
+Acción:
+Abre formulario Crear Evento
+
+2. FORMULARIO CREAR / EDITAR EVENTO
+
+Modal overlay.
+
+Estructura:
+
+Título
+
+Fecha
+
+Hora
+
+Repetición
+
+Categoría (selector dinámico)
+
+El selector de categoría:
+
+Lista de categorías creadas en Configuración
+
+Cada categoría:
+
+Nombre
+
+Círculo con color
+
+Botón “Administrar categorías” que lleva a Configuración
+
+Prioridad (Alta, Media, Baja)
+
+Personas (Selector de contactos)
+
+Selector de Personas:
+
+Lista de contactos existentes
+
+Buscador interno
+
+Selección múltiple
+
+Muestra chips con nombre seleccionado
+
+Lugar
+
+Recordatorio
+
+Descripción
+
+Adjuntos
+
+Botones:
+Cancelar
+Guardar
+tambien haz la VISTA DETALLE EVENTO que muestre la informacion del formulario cuando presionas en un evento, y botones de editar y borrar
+3. SECCIÓN CONTACTOS
+
+Lista ordenada alfabéticamente automáticamente.
+
+Estructura visual
+
+Header simple:
+“Contactos”
+
+Lista:
+
+Primera sección fija:
+“Yo”
+
+Contacto predeterminado vacío:
+
+Avatar gris con inicial
+
+Nombre: “Mi Perfil”
+
+Subtítulo: “Editar información personal”
+
+Luego:
+Lista alfabética
+
+Separadores por letra:
+A
+B
+C
+
+Cada contacto:
+
+Avatar circular
+
+Nombre
+
+Icono pequeño de detalle
+
+Botón Flotante en Contactos
+
+Icono:
+Persona con símbolo +
+
+Acción:
+Abrir formulario Crear Contacto
+
+4. FORMULARIO CREAR CONTACTO
+
+Modal overlay.
+
+Campos:
+
+Foto / Avatar
+
+Nombre completo
+
+Teléfono
+
+Correo
+
+Nota privada
+
+Guardar / Cancelar
+
+5. VISTA DETALLE CONTACTO
+
+Al tocar contacto.
+
+Estructura:
+
+Avatar grande
+Nombre
+Teléfono
+Correo
+Nota
+
+Botones:
+Editar
+Eliminar
+
+También:
+Lista de eventos relacionados (si existe asociación)
+
+6. SECCIÓN BUSCAR
+
+Sin botón flotante.
+
+Header:
+Barra de búsqueda grande
+
+Filtros horizontales:
+Todo
+Eventos
+Contactos
+
+Resultados en lista unificada.
+
+Eventos muestran:
+Color categoría
+Fecha
+
+Contactos muestran:
+Avatar
+Nombre
+
+7. SECCIÓN CONFIGURACIÓN
+
+Sin botón flotante.
+
+Lista organizada:
+
+Apariencia
+Notificaciones
+Categorías
+Seguridad
+Respaldo
+
+8. SUBSECCIÓN CATEGORÍAS
+
+Pantalla interna dentro de Configuración.
+
+Lista de categorías:
+
+Cada categoría:
+
+Círculo color
+
+Nombre
+
+Botón editar
+
+Swipe eliminar
+
+Botón crear categoría:
+
+Formulario pequeño:
+
+Nombre
+
+Selector de color
+
+Guardar
+
+Estas categorías se reflejan automáticamente en:
+
+Calendario (barras de colores)
+
+Selector de evento
+
+SISTEMA DE COLORES EN CALENDARIO
+
+Cada evento:
+Representado con barra horizontal del color de su categoría.
+
+En vista semanal:
+Barras pequeñas debajo del número del día.
+
+En vista mensual:
+Barras muy delgadas dentro del cuadro del día.
+
+Si hay más eventos que espacio:
+Se muestra indicador “+X”.
+
+COMPORTAMIENTO GLOBAL DEL FAB
+
+Agenda:
+Icono calendario +
+Crea evento
+
+Contactos:
+Icono persona +
+Crea contacto
+
+Buscar:
+No visible
+
+Configuración:
+No visible
+
+RESUMEN DE PANTALLAS FINALES
+
+Agenda (3 estados)
+
+Crear Evento
+
+Detalle Evento
+
+Contactos
+
+Crear Contacto
+
+Detalle Contacto
+
+Buscar
+
+Configuración
+
+Categorías
+
+Crear / Editar Categoría. diseña el resto de las pantallas que falten acorde a la app
+asegurate de que funcone bien tanto en andriod, tablets, IOS y pagina web(con vista de escritorio ya que son las principales que quiero y el diseño debe ser consistente

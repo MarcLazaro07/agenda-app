@@ -1,0 +1,5 @@
+﻿Analyzing lib...
+
+   info - features\agenda\screens\agenda_screen.dart:113:31 - Unnecessary use of multiple underscores. Try using '_'. - unnecessary_underscores
+
+1 issue found.
