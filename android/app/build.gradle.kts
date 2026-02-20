@@ -44,6 +44,7 @@ flutter {
 }
 
 dependencies {
-    // En KTS las funciones llevan paréntesis
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+    // Actualizamos de 2.0.3 a 2.1.4 como pide el error
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }
+
